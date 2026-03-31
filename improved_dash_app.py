@@ -12,32 +12,33 @@ data["date"] = pd.to_datetime(data["date"])
 app = Dash(__name__)
 
 app.layout = html.Div([
+    html.Div([
+        html.H2("Sales Dashboard",
+                style={
+                    "textAlign": "center",
+                    "color": "blue",
+                    "fontFamily":"Italic"
+                }),
 
-    html.H2("Sales Dashboard",
+        dcc.RadioItems(
+            id="region",
+            options=[
+                {"label": "All", "value": "all"},
+                {"label": "North", "value": "north"},
+                {"label": "South", "value": "south"},
+                {"label": "East", "value": "east"},
+                {"label": "West", "value": "west"}
+            ],
+            value="all",
             style={
-                "textAlign": "center",
-                "color": "blue",
-                "fontFamily":"Italic"
-            }),
+                "marginBottom": "20px",
+                "color": "blue"   
+            }
+        ),
 
-    dcc.RadioItems(
-        id="region",
-        options=[
-            {"label": "All", "value": "all"},
-            {"label": "North", "value": "north"},
-            {"label": "South", "value": "south"},
-            {"label": "East", "value": "east"},
-            {"label": "West", "value": "west"}
-        ],
-        value="all",
-        style={
-            "marginBottom": "20px",
-            "color": "blue"   
-        }
-    ),
+        dcc.Graph(id="graph")
 
-    dcc.Graph(id="graph")
-
+    ])
 ],
 style={
     "width": "60%",
@@ -46,8 +47,6 @@ style={
     "backgroundColor": "#f9f9f9",
     "borderRadius": "10px"
 })
-
-dcc.Graph(id="graph")
 
 
 
