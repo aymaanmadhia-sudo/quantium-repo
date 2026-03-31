@@ -23,7 +23,7 @@ Created a simple interactive dashboard using Dash:
 
 - Line chart showing sales over time  
 - Region filter (north, south, east, west, all)  
-- Basic styling with dark theme  
+- Basic styling
 - Dynamic updates using callbacks  
 
 ---
